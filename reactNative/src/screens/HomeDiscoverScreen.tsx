@@ -7,10 +7,9 @@ import { UserInfo } from '../components/HomeDiscoverComponents/UserInfo';
 
 const HomeDiscoverScreen = () => {
   return (
-    <SafeAreaView >
+    <SafeAreaView  style={{backgroundColor:"#FFF9F0"}}>
       <UserInfo />
       <TinderSwipe />
-      
     </SafeAreaView>
   );
 };

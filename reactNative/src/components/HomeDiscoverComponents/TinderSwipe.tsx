@@ -13,21 +13,24 @@ const ScreenWidth = Dimensions.get('window').width;
 const ScreenHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
-  card: {
-    flex: 1,
-    borderRadius: 4,
-    borderWidth: 2,
-    borderColor: '#E8E8E8',
-    backgroundColor: 'white',
-  },
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    width: ScreenWidth * 0.9,
+    height: ScreenHeight * 0.5,
+    // backgroundColor: 'white',
+  },
+  card: {
+    borderRadius: 5,
+    borderColor: '#E8E8E8',
+    backgroundColor: 'white',
+    width: ScreenWidth * 0.9,
+    height: ScreenHeight * 0.5,
   },
   image: {
-    width: ScreenWidth * 0.5, // 50% of the screen width
-    height: ScreenHeight * 0.3, // 30% of the screen height
+    width: ScreenWidth * 0.9, // 50% of the screen width
+    height: ScreenHeight * 0.5, // 30% of the screen height
+    backgroundColor: 'white',
   },
 });
 
@@ -46,8 +49,6 @@ export function TinderSwipe() {
     {id: 4, image: require('../../assets/img/edan.jpeg')},
     {id: 4, image: require('../../assets/img/stanley.jpeg')},
   ];
-
-  const pan = useState(new Animated.ValueXY())[0];
 
   const handleSwipeRight = () => {
     console.log('swipe right');
@@ -69,12 +70,10 @@ export function TinderSwipe() {
           cards={cards}
           stackSize={2}
           cardIndex={0}
+          backgroundColor='#FFF9F0'
           renderCard={card => (
-            <Animated.View style={[pan.getLayout(), styles.card]}>
-              <Image
-                source={card.image}
-                style={{flex: 1, width: ScreenWidth, height: ScreenHeight}}
-              />
+            <Animated.View style={[styles.card]}>
+              <Image source={card.image} style={styles.card} />
             </Animated.View>
           )}
           onSwipedRight={handleSwipeRight}
